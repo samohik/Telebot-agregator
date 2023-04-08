@@ -1,0 +1,14 @@
+FROM python:3.11
+
+RUN pip3 install --upgrade pip
+
+ADD requirements.txt Telebot/
+
+RUN pip install -r Telebot/requirements.txt
+
+
+COPY . /Telebot
+
+WORKDIR /Telebot
+
+CMD ["python", "telebot/main.py", "run"]
